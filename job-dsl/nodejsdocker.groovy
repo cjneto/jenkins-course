@@ -17,7 +17,7 @@ job('NodeJS Docker example') {
             repositoryName('cjneto/docker-nodejs-demo')
             tag('${GIT_REVISION,length=9}')
             registryCredentials('quay.io')
-            registryURL('https://quay.io')
+            dockerRegistryURL('https://quay.io')
             forcePull(false)
             forceTag(false)
             createFingerprints(false)
