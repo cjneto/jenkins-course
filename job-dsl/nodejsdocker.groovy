@@ -1,6 +1,6 @@
 job('NodeJS Docker example') {
     scm {
-        git('git://github.com/cjneto/docker-demo.git') {  node -> // is hudson.plugins.git.GitSCM
+        git('https://github.com/cjneto/docker-demo.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
             node / gitConfigEmail('jenkins-dsl@newtech.academy')
         }
@@ -16,7 +16,9 @@ job('NodeJS Docker example') {
         dockerBuildAndPublish {
             repositoryName('cjneto/docker-nodejs-demo')
             tag('${GIT_REVISION,length=9}')
+            dockerRegistryURL('https://quay.io')
             registryCredentials('quay.io')
+            registry
             forcePull(false)
             forceTag(false)
             createFingerprints(false)
