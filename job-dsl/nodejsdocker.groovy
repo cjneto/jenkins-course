@@ -16,7 +16,7 @@ job('NodeJS Docker example') {
         dockerBuildAndPublish {
             repositoryName('cjneto/docker-nodejs-demo')
             tag('${GIT_REVISION,length=9}')
-            dockerRegistryURL('https://quay.io')
+            dockerHostURI('https://quay.io')
             registryCredentials('quay.io')
             registry
             forcePull(false)
